@@ -1,32 +1,17 @@
 # Dia do Saci
 
-Site estático em português, iniciativa independente de MSR-BR pela valorização do folclore brasileiro.
+Site estático em português pela valorização do folclore brasileiro.
 
-Publicação: https://msr-br.github.io/saci/
+https://msr-br.github.io/saci/
 
-## Conteúdo
+A página oferece uma única arte: `banners/saci-com-data.png`, com Dia do Saci, 31 de outubro e Viva o folclore brasileiro integrados à ilustração. Arte produzida com o ImageGen integrado, em estilo inspirado em xilogravura e cordel. As fontes históricas estão na página.
 
-- História da data, com distinção entre projeto federal e lei estadual.
-- Manifesto de valorização cultural e sugestões de celebração.
-- Banners PNG: 1080×1080, 1080×1350 e 1080×1920.
-- Legenda copiável, compartilhamento via WhatsApp, fontes primárias.
+## Compartilhamento
+
+O botão prepara o PNG antes do clique e chama a Web Share API com o arquivo e a legenda, incluindo o link da página. O visitante escolhe o WhatsApp no menu do dispositivo. O navegador não pode selecionar o aplicativo automaticamente. A preservação do texto como legenda depende do aplicativo e sistema de destino; a página não pode confirmar o envio.
+
+Quando o compartilhamento de arquivos não está disponível ou falha, a interface oferece download da imagem e envio do link pelo WhatsApp. O link `wa.me` envia texto, não um anexo. Cancelar o menu não dispara outra ação. Não há publicação automática, coleta de contatos ou envio sem confirmação do visitante.
 
 ## Desenvolvimento
 
-Não há dependências de produção ou serviço de terceiros. Execute `python3 -m http.server 4173` e abra http://localhost:4173.
-
-Os scripts opcionais de exportação e verificação usam Playwright (`npm install --no-save playwright` e navegador Chromium instalado): `node scripts/banners.cjs` e `node scripts/check.cjs`. A publicação automática pelo GitHub Actions envia apenas HTML, CSS, JavaScript, assets e banners.
-
-## Ilustração e materiais
-
-Ilustração produzida com o ImageGen integrado. Composição e tipografia dos banners feitas em Canvas. As artes podem ser baixadas e compartilhadas na divulgação do Dia do Saci. Imagens estáticas não incluem vídeo ou trilha sonora.
-
-Prompt da ilustração: “Use case: illustration-story. Create an original editorial illustration for a Brazilian Dia do Saci cultural celebration website. Square composition, richly textured Brazilian woodcut / cordel printmaking meets modern folk poster, warm cream paper background #f5eedc, deep forest green foliage, black ink hatching, vermilion red and golden ochre accents. A joyful and dignified Black Brazilian folklore Saci with exactly ONE leg, wearing red shorts and his iconic long floppy red cap, dancing inside a swirling wind spiral among tropical leaves, small stars and sun. Full body, central composition, art fills frame with generous cream edges. Expressive face without racial caricature, playful magical energy, beautiful artisanal print texture. No text, no letters, no watermark. This is artwork only, not a website screenshot.”
-
-Fontes históricas estão vinculadas na própria página. A opinião editorial do manifesto é da campanha, não das instituições citadas.
-
-## Versão com texto integrado
-
-`banners/saci-com-data.png` acrescenta título, data e slogan à própria ilustração, mantendo os três banners originais disponíveis. Editada com o ImageGen integrado a partir de `assets/saci.png`.
-
-Prompt da edição: “Edit this illustration into a square shareable Dia do Saci poster. Preserve the beautiful original cordel woodcut artwork, the SAME recognizable Saci character with exactly one leg, facial features, red cap, pose, foliage, warm paper colors and texture. Integrate large highly legible Portuguese typography INSIDE the illustrated composition, as part of the woodcut poster: exact headline DIA DO SACI, exact date 31 DE OUTUBRO, and smaller slogan VIVA O FOLCLORE BRASILEIRO. Use warm cream carved cartouches with forest-green text integrated into the foliage at top and bottom, keeping face, red cap, body and single leg clearly visible. Recompose margins only as needed to fit the text. Text must be correctly spelled, highly readable on a phone and within generous safe margins. No outside caption panel, no mockup, no additional text. Final artwork should fill the square.”
+Execute `python3 -m http.server 4173`. Não há dependências de produção. A publicação via GitHub Actions envia apenas HTML, CSS, JavaScript, assets e banners. O teste opcional `node scripts/check.cjs` requer Playwright e Chromium. Ele verifica o payload do compartilhamento com uma API simulada, os caminhos de cancelamento e indisponibilidade, downloads e layout; não envia mensagens reais.
