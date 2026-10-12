@@ -1,3 +1,5 @@
+const caption = document.querySelector('#caption');
+document.querySelector('#whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(caption.textContent);
 const copy = document.querySelector('#copy');
 copy.addEventListener('click', async () => {
   const text = document.querySelector('#caption').textContent;
